@@ -1,0 +1,353 @@
+ERROR - 2026-08-17 12:49:08 --> Error connecting to the database: mysqli_sql_exception: No such file or directory in /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/Database/MySQLi/Connection.php:201
+Stack trace:
+#0 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/Database/MySQLi/Connection.php(201): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'kos_management', 3306, '', 0)
+#1 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/Database/BaseBuilder.php(1659): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/Model.php(255): CodeIgniter\Database\BaseBuilder->get()
+#5 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/app/Controllers/PublicSite.php(30): CodeIgniter\BaseModel->findAll()
+#7 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/CodeIgniter.php(974): App\Controllers\PublicSite->index()
+#8 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PublicSite))
+#9 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/public/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/rewrite.php(44): require_once('/Users/anugrahf...')
+#14 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No such file or directory in /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/Database/MySQLi/Connection.php:231
+Stack trace:
+#0 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/Database/BaseBuilder.php(1659): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/Model.php(255): CodeIgniter\Database\BaseBuilder->get()
+#4 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#5 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/app/Controllers/PublicSite.php(30): CodeIgniter\BaseModel->findAll()
+#6 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/CodeIgniter.php(974): App\Controllers\PublicSite->index()
+#7 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PublicSite))
+#8 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/public/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/rewrite.php(44): require_once('/Users/anugrahf...')
+#13 {main}
+CRITICAL - 2026-08-17 12:49:08 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: No such file or directory
+[Method: GET, Route: /]
+in SYSTEMPATH/Database/BaseConnection.php on line 606.
+ 1 SYSTEMPATH/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1659): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `kamar`
+WHERE `status` = :status:', [...], false)
+ 3 SYSTEMPATH/Model.php(255): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH/BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 5 APPPATH/Controllers/PublicSite.php(30): CodeIgniter\BaseModel->findAll()
+ 6 SYSTEMPATH/CodeIgniter.php(974): App\Controllers\PublicSite->index()
+ 7 SYSTEMPATH/CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PublicSite))
+ 8 SYSTEMPATH/CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH/rewrite.php(44): require_once('/Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/public/index.php')
+ERROR - 2026-08-17 12:49:25 --> Error connecting to the database: mysqli_sql_exception: No such file or directory in /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/Database/MySQLi/Connection.php:201
+Stack trace:
+#0 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/Database/MySQLi/Connection.php(201): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'kos_management', 3306, '', 0)
+#1 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/Database/BaseBuilder.php(1659): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/Model.php(255): CodeIgniter\Database\BaseBuilder->get()
+#5 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/app/Controllers/PublicSite.php(30): CodeIgniter\BaseModel->findAll()
+#7 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/CodeIgniter.php(974): App\Controllers\PublicSite->index()
+#8 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PublicSite))
+#9 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/public/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/rewrite.php(44): require_once('/Users/anugrahf...')
+#14 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No such file or directory in /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/Database/MySQLi/Connection.php:231
+Stack trace:
+#0 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/Database/BaseBuilder.php(1659): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/Model.php(255): CodeIgniter\Database\BaseBuilder->get()
+#4 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#5 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/app/Controllers/PublicSite.php(30): CodeIgniter\BaseModel->findAll()
+#6 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/CodeIgniter.php(974): App\Controllers\PublicSite->index()
+#7 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PublicSite))
+#8 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/public/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/rewrite.php(44): require_once('/Users/anugrahf...')
+#13 {main}
+CRITICAL - 2026-08-17 12:49:25 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: No such file or directory
+[Method: GET, Route: /]
+in SYSTEMPATH/Database/BaseConnection.php on line 606.
+ 1 SYSTEMPATH/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1659): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `kamar`
+WHERE `status` = :status:', [...], false)
+ 3 SYSTEMPATH/Model.php(255): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH/BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 5 APPPATH/Controllers/PublicSite.php(30): CodeIgniter\BaseModel->findAll()
+ 6 SYSTEMPATH/CodeIgniter.php(974): App\Controllers\PublicSite->index()
+ 7 SYSTEMPATH/CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PublicSite))
+ 8 SYSTEMPATH/CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH/rewrite.php(44): require_once('/Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/public/index.php')
+ERROR - 2026-08-17 12:49:37 --> Error connecting to the database: mysqli_sql_exception: No such file or directory in /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/Database/MySQLi/Connection.php:201
+Stack trace:
+#0 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/Database/MySQLi/Connection.php(201): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'kos_management', 3306, '', 0)
+#1 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/Database/BaseBuilder.php(1659): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/Model.php(255): CodeIgniter\Database\BaseBuilder->get()
+#5 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/app/Controllers/PublicSite.php(30): CodeIgniter\BaseModel->findAll()
+#7 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/CodeIgniter.php(974): App\Controllers\PublicSite->index()
+#8 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PublicSite))
+#9 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/public/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/rewrite.php(44): require_once('/Users/anugrahf...')
+#14 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No such file or directory in /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/Database/MySQLi/Connection.php:231
+Stack trace:
+#0 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/Database/BaseBuilder.php(1659): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/Model.php(255): CodeIgniter\Database\BaseBuilder->get()
+#4 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#5 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/app/Controllers/PublicSite.php(30): CodeIgniter\BaseModel->findAll()
+#6 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/CodeIgniter.php(974): App\Controllers\PublicSite->index()
+#7 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PublicSite))
+#8 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/public/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/rewrite.php(44): require_once('/Users/anugrahf...')
+#13 {main}
+CRITICAL - 2026-08-17 12:49:37 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: No such file or directory
+[Method: GET, Route: /]
+in SYSTEMPATH/Database/BaseConnection.php on line 606.
+ 1 SYSTEMPATH/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1659): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `kamar`
+WHERE `status` = :status:', [...], false)
+ 3 SYSTEMPATH/Model.php(255): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH/BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 5 APPPATH/Controllers/PublicSite.php(30): CodeIgniter\BaseModel->findAll()
+ 6 SYSTEMPATH/CodeIgniter.php(974): App\Controllers\PublicSite->index()
+ 7 SYSTEMPATH/CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PublicSite))
+ 8 SYSTEMPATH/CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH/rewrite.php(44): require_once('/Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/public/index.php')
+ERROR - 2026-08-17 12:49:44 --> Error connecting to the database: mysqli_sql_exception: No such file or directory in /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/Database/MySQLi/Connection.php:201
+Stack trace:
+#0 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/Database/MySQLi/Connection.php(201): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'kos_management', 3306, '', 0)
+#1 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/Database/BaseBuilder.php(1659): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/Model.php(255): CodeIgniter\Database\BaseBuilder->get()
+#5 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/app/Controllers/PublicSite.php(30): CodeIgniter\BaseModel->findAll()
+#7 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/CodeIgniter.php(974): App\Controllers\PublicSite->index()
+#8 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PublicSite))
+#9 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/public/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/rewrite.php(44): require_once('/Users/anugrahf...')
+#14 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No such file or directory in /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/Database/MySQLi/Connection.php:231
+Stack trace:
+#0 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/Database/BaseBuilder.php(1659): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/Model.php(255): CodeIgniter\Database\BaseBuilder->get()
+#4 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#5 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/app/Controllers/PublicSite.php(30): CodeIgniter\BaseModel->findAll()
+#6 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/CodeIgniter.php(974): App\Controllers\PublicSite->index()
+#7 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PublicSite))
+#8 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/public/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/rewrite.php(44): require_once('/Users/anugrahf...')
+#13 {main}
+CRITICAL - 2026-08-17 12:49:44 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: No such file or directory
+[Method: GET, Route: /]
+in SYSTEMPATH/Database/BaseConnection.php on line 606.
+ 1 SYSTEMPATH/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1659): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `kamar`
+WHERE `status` = :status:', [...], false)
+ 3 SYSTEMPATH/Model.php(255): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH/BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 5 APPPATH/Controllers/PublicSite.php(30): CodeIgniter\BaseModel->findAll()
+ 6 SYSTEMPATH/CodeIgniter.php(974): App\Controllers\PublicSite->index()
+ 7 SYSTEMPATH/CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PublicSite))
+ 8 SYSTEMPATH/CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH/rewrite.php(44): require_once('/Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/public/index.php')
+ERROR - 2026-08-17 12:49:48 --> Error connecting to the database: mysqli_sql_exception: No such file or directory in /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/Database/MySQLi/Connection.php:201
+Stack trace:
+#0 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/Database/MySQLi/Connection.php(201): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'kos_management', 3306, '', 0)
+#1 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/Database/BaseBuilder.php(1659): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/Model.php(255): CodeIgniter\Database\BaseBuilder->get()
+#5 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/app/Controllers/PublicSite.php(30): CodeIgniter\BaseModel->findAll()
+#7 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/CodeIgniter.php(974): App\Controllers\PublicSite->index()
+#8 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PublicSite))
+#9 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/public/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/rewrite.php(44): require_once('/Users/anugrahf...')
+#14 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No such file or directory in /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/Database/MySQLi/Connection.php:231
+Stack trace:
+#0 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/Database/BaseBuilder.php(1659): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/Model.php(255): CodeIgniter\Database\BaseBuilder->get()
+#4 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#5 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/app/Controllers/PublicSite.php(30): CodeIgniter\BaseModel->findAll()
+#6 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/CodeIgniter.php(974): App\Controllers\PublicSite->index()
+#7 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PublicSite))
+#8 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/public/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/rewrite.php(44): require_once('/Users/anugrahf...')
+#13 {main}
+CRITICAL - 2026-08-17 12:49:48 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: No such file or directory
+[Method: GET, Route: /]
+in SYSTEMPATH/Database/BaseConnection.php on line 606.
+ 1 SYSTEMPATH/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1659): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `kamar`
+WHERE `status` = :status:', [...], false)
+ 3 SYSTEMPATH/Model.php(255): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH/BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 5 APPPATH/Controllers/PublicSite.php(30): CodeIgniter\BaseModel->findAll()
+ 6 SYSTEMPATH/CodeIgniter.php(974): App\Controllers\PublicSite->index()
+ 7 SYSTEMPATH/CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PublicSite))
+ 8 SYSTEMPATH/CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH/rewrite.php(44): require_once('/Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/public/index.php')
+ERROR - 2026-08-17 12:49:57 --> Error connecting to the database: mysqli_sql_exception: No such file or directory in /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/Database/MySQLi/Connection.php:201
+Stack trace:
+#0 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/Database/MySQLi/Connection.php(201): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'kos_management', 3306, '', 0)
+#1 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/Database/BaseConnection.php(1706): CodeIgniter\Database\BaseConnection->query('SHOW TABLES FRO...')
+#4 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/Database/BaseConnection.php(1726): CodeIgniter\Database\BaseConnection->listTables()
+#5 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/Database/MigrationRunner.php(821): CodeIgniter\Database\BaseConnection->tableExists('migrations')
+#6 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/Database/MigrationRunner.php(173): CodeIgniter\Database\MigrationRunner->ensureTable()
+#7 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/Commands/Database/Migrate.php(89): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/CLI/SignalTrait.php(245): CodeIgniter\Commands\Database\Migrate::{closure:CodeIgniter\Commands\Database\Migrate::run():88}()
+#9 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/Commands/Database/Migrate.php(88): CodeIgniter\Commands\Database\Migrate->withSignalsBlocked(Object(Closure))
+#10 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/CLI/Commands.php(72): CodeIgniter\Commands\Database\Migrate->run(Array)
+#11 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/CLI/Console.php(47): CodeIgniter\CLI\Commands->run('migrate', Array)
+#12 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/Boot.php(444): CodeIgniter\CLI\Console->run()
+#13 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/Boot.php(166): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+#14 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/spark(87): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+#15 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No such file or directory in /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/Database/MySQLi/Connection.php:231
+Stack trace:
+#0 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/Database/BaseConnection.php(1706): CodeIgniter\Database\BaseConnection->query('SHOW TABLES FRO...')
+#3 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/Database/BaseConnection.php(1726): CodeIgniter\Database\BaseConnection->listTables()
+#4 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/Database/MigrationRunner.php(821): CodeIgniter\Database\BaseConnection->tableExists('migrations')
+#5 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/Database/MigrationRunner.php(173): CodeIgniter\Database\MigrationRunner->ensureTable()
+#6 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/Commands/Database/Migrate.php(89): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#7 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/CLI/SignalTrait.php(245): CodeIgniter\Commands\Database\Migrate::{closure:CodeIgniter\Commands\Database\Migrate::run():88}()
+#8 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/Commands/Database/Migrate.php(88): CodeIgniter\Commands\Database\Migrate->withSignalsBlocked(Object(Closure))
+#9 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/CLI/Commands.php(72): CodeIgniter\Commands\Database\Migrate->run(Array)
+#10 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/CLI/Console.php(47): CodeIgniter\CLI\Commands->run('migrate', Array)
+#11 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/Boot.php(444): CodeIgniter\CLI\Console->run()
+#12 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/system/Boot.php(166): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+#13 /Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/spark(87): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+#14 {main}
+DEBUG - 2026-08-17 12:52:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-08-17 12:52:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-08-17 12:53:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-08-17 12:53:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-08-17 12:53:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-08-17 12:58:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-08-17 12:58:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-08-17 12:59:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-08-17 12:59:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-08-17 12:59:51 --> CodeIgniter\Validation\Exceptions\ValidationException: "" is not a valid rule.
+[Method: POST, Route: login]
+in SYSTEMPATH/Validation/Validation.php on line 354.
+ 1 SYSTEMPATH/Validation/Validation.php(354): CodeIgniter\Validation\Exceptions\ValidationException::forRuleNotFound('')
+ 2 SYSTEMPATH/Validation/Validation.php(210): CodeIgniter\Validation\Validation->processRules('username', 'username', 'arap', [...], [...], 'username')
+ 3 SYSTEMPATH/Controller.php(136): CodeIgniter\Validation\Validation->run()
+ 4 APPPATH/Controllers/Auth.php(35): CodeIgniter\Controller->validate([...])
+ 5 SYSTEMPATH/CodeIgniter.php(974): App\Controllers\Auth->attemptLogin()
+ 6 SYSTEMPATH/CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+ 7 SYSTEMPATH/CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH/rewrite.php(44): require_once('/Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/public/index.php')
+DEBUG - 2026-08-17 13:00:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-08-17 13:00:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-08-17 13:00:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-08-17 13:00:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-08-17 13:02:41 --> CodeIgniter\Validation\Exceptions\ValidationException: "" is not a valid rule.
+[Method: POST, Route: login]
+in SYSTEMPATH/Validation/Validation.php on line 354.
+ 1 SYSTEMPATH/Validation/Validation.php(354): CodeIgniter\Validation\Exceptions\ValidationException::forRuleNotFound('')
+ 2 SYSTEMPATH/Validation/Validation.php(210): CodeIgniter\Validation\Validation->processRules('username', 'username', 'arap', [...], [...], 'username')
+ 3 SYSTEMPATH/Controller.php(136): CodeIgniter\Validation\Validation->run()
+ 4 APPPATH/Controllers/Auth.php(35): CodeIgniter\Controller->validate([...])
+ 5 SYSTEMPATH/CodeIgniter.php(974): App\Controllers\Auth->attemptLogin()
+ 6 SYSTEMPATH/CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+ 7 SYSTEMPATH/CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH/rewrite.php(44): require_once('/Users/anugrahfadillah/magangMK/Manajemen-Kos-Kosa-n/public/index.php')
+DEBUG - 2026-08-17 13:03:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-08-17 13:03:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-08-17 13:05:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-08-17 13:05:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-08-17 13:05:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-08-17 13:07:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-08-17 13:07:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-08-17 23:54:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-08-17 23:54:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-08-17 23:54:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-08-17 23:54:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-08-17 23:56:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-08-17 23:56:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-08-17 23:56:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-08-17 23:56:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-08-17 23:56:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
