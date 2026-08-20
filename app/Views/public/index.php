@@ -6,6 +6,9 @@
     <div class="container">
         <h1 class="fw-bold"><i class="bi bi-house-heart-fill"></i> Kos Nyaman & Strategis</h1>
         <p class="lead mb-0">Cari kamar kos idaman Anda, lihat ketersediaan kamar secara langsung di bawah ini.</p>
+        <a href="https://maps.app.goo.gl/tHPZCf63bpAcbiJ56" target="_blank" class="btn btn-outline-light btn-sm rounded-pill px-3 mt-3">
+            <i class="bi bi-geo-alt-fill text-danger"></i> Lihat Lokasi di Google Maps
+        </a>
     </div>
 </div>
 

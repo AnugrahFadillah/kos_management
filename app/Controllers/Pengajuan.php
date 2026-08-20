@@ -39,7 +39,6 @@ class Pengajuan extends BaseController
 
         return view('pengajuan/index', $data);
     }
-
     // UPDATE - Admin mengubah status pengajuan (baru/diproses/diterima/ditolak)
     public function updateStatus($id)
     {
@@ -49,21 +48,26 @@ class Pengajuan extends BaseController
             return redirect()->to('/pengajuan')->with('error', 'Data pengajuan tidak ditemukan.');
         }
 
-        $status = $this->request->getPost('status');
+        $statusLama = strtolower($pengajuan['status']);
+        $statusBaru = strtolower($this->request->getPost('status'));
+
+        // Kalau admin cuma iseng mencet tombol tapi statusnya gak berubah, langsung kembalikan
+        if ($statusLama === $statusBaru) {
+            return redirect()->to('/pengajuan');
+        }
 
         // 1. Update status di tabel pengajuan
-        $this->pengajuanModel->update($id, ['status' => $status]);
+        $this->pengajuanModel->update($id, ['status' => $statusBaru]);
 
-        // 2. LOGIKA OTOMATIS JIKA STATUS DITERIMA
-        if ($status === 'diterima' || $status === 'Diterima') {
-            
+        // 2. LOGIKA OTOMATIS JIKA STATUS BERUBAH MENJADI "DITERIMA"
+        if ($statusBaru === 'diterima') {
             // A. Update status kamar jadi terisi
             $this->kamarModel->update($pengajuan['kamar_id'], ['status' => 'terisi']);
 
-            // B. Masukkan data ke tabel Penyewa secara otomatis
+            // B. Masukkan data ke tabel Penyewa
             $penyewaModel = new \App\Models\PenyewaModel();
             
-            // Cek dulu biar gak double insert kalau admin kepencet 2x
+            // Cek biar gak double insert
             $cekPenyewa = $penyewaModel->where('nama', $pengajuan['nama'])
                                        ->where('kamar_id', $pengajuan['kamar_id'])
                                        ->first();
@@ -74,18 +78,41 @@ class Pengajuan extends BaseController
                     'nama'          => $pengajuan['nama'],
                     'no_hp'         => $pengajuan['no_hp'],
                     'tanggal_masuk' => $pengajuan['tanggal_masuk'],
-                    'status'        => 'aktif' // Default status di tabel penyewa
+                    'status'        => 'aktif'
                 ]);
             }
 
-            // C. Ubah status user jadi "penyewa" (JIKA dia punya akun / user_id tidak kosong)
+            // C. Ubah status user jadi "penyewa"
             if (!empty($pengajuan['user_id'])) {
                 $userModel = new \App\Models\UserModel();
                 $userModel->update($pengajuan['user_id'], ['status' => 'penyewa']);
             }
+        } 
+        
+        // 3. LOGIKA ROLLBACK (JIKA SEBELUMNYA "DITERIMA" TAPI DIUBAH KE STATUS LAIN)
+        elseif ($statusLama === 'diterima' && $statusBaru !== 'diterima') {
+            
+            // A. Kembalikan status kamar jadi kosong
+            $this->kamarModel->update($pengajuan['kamar_id'], ['status' => 'kosong']);
+
+            // B. Hapus data dari tabel Penyewa
+            $penyewaModel = new \App\Models\PenyewaModel();
+            $penyewa = $penyewaModel->where('nama', $pengajuan['nama'])
+                                    ->where('kamar_id', $pengajuan['kamar_id'])
+                                    ->first();
+            
+            if ($penyewa) {
+                $penyewaModel->delete($penyewa['id']);
+            }
+
+            // C. Kembalikan status user jadi "calon_penyewa"
+            if (!empty($pengajuan['user_id'])) {
+                $userModel = new \App\Models\UserModel();
+                $userModel->update($pengajuan['user_id'], ['status' => 'calon_penyewa']);
+            }
         }
 
-        return redirect()->to('/pengajuan')->with('success', 'Status pengajuan berhasil diperbarui dan disinkronisasi.');
+        return redirect()->to('/pengajuan')->with('success', 'Status pengajuan berhasil diperbarui.');
     }
 
     // DELETE - Menghapus data pengajuan

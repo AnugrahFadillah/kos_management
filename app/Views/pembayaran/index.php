@@ -12,7 +12,7 @@
     <div class="table-responsive">
         <table class="table table-hover mb-0 align-middle">
             <thead class="table-dark">
-                <tr>
+                <tr class="text-center">
                     <th>No</th>
                     <th>Penyewa</th>
                     <th>Kamar</th>
@@ -20,8 +20,9 @@
                     <th>Jumlah</th>
                     <th>Tgl Bayar</th>
                     <th>Bukti</th>
+                    <th >Catatan</th>
                     <th>Status</th>
-                    <th class="text-center">Aksi</th>
+                    <th>Aksi</th>
                 </tr>
             </thead>
             <tbody>
@@ -29,7 +30,7 @@
                     <tr><td colspan="9" class="text-center text-muted py-4">Belum ada data pembayaran.</td></tr>
                 <?php else : ?>
                     <?php foreach ($pembayaran as $i => $row) : ?>
-                        <tr>
+                        <tr class="text-center">
                             <td><?= $i + 1 ?></td>
                             <td><?= esc($row['nama_penyewa']) ?></td>
                             <td><?= esc($row['nomor_kamar']) ?></td>
@@ -46,6 +47,8 @@
                                     <span class="text-muted small">-</span>
                                 <?php endif; ?>
                             </td>
+                            <td>
+                                <?= esc($row['catatan'] ?? '-') ?></td>
                             <td>
                                 <?php if ($row['status'] === 'lunas') : ?>
                                     <span class="badge bg-success">Lunas</span>
