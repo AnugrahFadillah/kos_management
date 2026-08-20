@@ -60,4 +60,14 @@ class PengajuanModel extends Model
     {
         return $this->where('status', 'baru')->countAllResults();
     }
+
+    // Ambil riwayat pengajuan berdasarkan user_id
+    public function getPengajuanByUser($userId)
+    {
+        return $this->select('pengajuan.*, kamar.nomor_kamar, kamar.tipe_kamar, kamar.harga_bulanan')
+                    ->join('kamar', 'kamar.id = pengajuan.kamar_id')
+                    ->where('pengajuan.user_id', $userId)
+                    ->orderBy('pengajuan.created_at', 'DESC')
+                    ->findAll();
+    }
 }

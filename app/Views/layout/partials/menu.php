@@ -11,7 +11,7 @@
     </li>
     <li class="nav-item">
         <a class="nav-link <?= strpos(uri_string(), 'penyewa') === 0 ? 'active' : '' ?>" href="<?= base_url('penyewa') ?>">
-            <i class="bi bi-people"></i> Data Penyewa
+            <i class="bi bi-people"></i> Data Pengguna
         </a>
     </li>
     <li class="nav-item">

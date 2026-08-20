@@ -35,23 +35,40 @@
 <body>
 
 <nav class="navbar navbar-dark bg-dark">
-    <div class="container flex-wrap gap-2">
-        <a class="navbar-brand mb-0" href="<?= base_url('/') ?>">
-            <i class="bi bi-house-door-fill"></i> Kos Manager
-        </a>
-
-        <?php if (session()->get('logged_in')) : ?>
-            <div class="d-flex align-items-center gap-2">
-                <span class="text-light small me-2"><?= esc(session()->get('nama') ?? session()->get('username')) ?></span>
-                <a href="<?= base_url('logout') ?>" class="btn btn-outline-light btn-sm">
-                    <i class="bi bi-box-arrow-right"></i> Logout
-                </a>
-            </div>
-        <?php else: ?>
-            <a href="<?= base_url('login') ?>" class="btn btn-outline-light btn-sm">
-                <i class="bi bi-box-arrow-in-right"></i> Login
+    <!-- Pake justify-content-between biar kebagi rapi Kiri dan Kanan -->
+    <div class="container d-flex justify-content-between align-items-center">
+        
+        <!-- BAGIAN KIRI: Logo & Lokasi Gmaps -->
+        <div class="d-flex align-items-center gap-3">
+            <a class="navbar-brand mb-0" href="<?= base_url('/') ?>">
+                <i class="bi bi-house-door-fill"></i> Kos Manager
             </a>
-        <?php endif; ?>
+        </div>
+
+        <!-- BAGIAN KANAN: Menu User & Auth -->
+        <div class="d-flex align-items-center gap-2">
+            <?php if (session()->get('logged_in')) : ?>
+                
+                <!-- Tombol "Pengajuan Saya" (Hanya muncul jika bukan Admin) -->
+                <?php if (! session()->get('is_admin')) : ?>
+                    <a href="<?= base_url('riwayat-pengajuan') ?>" class="btn btn-primary btn-sm me-1 shadow-sm">
+                        <i class="bi bi-clock-history"></i> <span class="d-none d-sm-inline">Pengajuan Saya</span>
+                    </a>
+                <?php endif; ?>
+
+                <span class="text-light small me-2 d-none d-md-block">
+                    Halo, <?= esc(session()->get('nama') ?? session()->get('username')) ?>
+                </span>
+                <a href="<?= base_url('logout') ?>" class="btn btn-outline-light btn-sm">
+                    <i class="bi bi-box-arrow-right"></i> <span class="d-none d-sm-inline">Logout</span>
+                </a>
+            <?php else: ?>
+                <a href="<?= base_url('login') ?>" class="btn btn-outline-light btn-sm">
+                    <i class="bi bi-box-arrow-in-right"></i> Login
+                </a>
+            <?php endif; ?>
+        </div>
+
     </div>
 </nav>
 

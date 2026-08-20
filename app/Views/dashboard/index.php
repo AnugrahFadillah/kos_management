@@ -63,12 +63,37 @@
         </div>
     </div>
 </div>
+<!-- Hapus <div class="card mt-4 p-3 shadow-sm"> bawaan lu, ganti sama ini -->
 
-<div class="card mt-4 p-3 shadow-sm">
-    <p class="mb-0">
-        <i class="bi bi-cash-coin text-success"></i>
-        Jumlah transaksi pembayaran bulan ini: <strong><?= esc($pembayaran_bulan_ini) ?></strong>
-    </p>
+<hr class="my-4 text-muted">
+<h5 class="mb-3 text-secondary fw-bold">Ringkasan Keuangan Bulan Ini</h5>
+
+<div class="row g-3">
+    <!-- Card Pemasukan Lunas -->
+    <div class="col-md-6">
+        <div class="card card-summary shadow-sm p-4 bg-success text-white" style="border-radius: 12px;">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <p class="mb-1" style="font-size: 1.1rem;">Pemasukan Lunas</p>
+                    <h2 class="mb-0 fw-bold">Rp <?= number_format($total_pemasukan, 0, ',', '.') ?></h2>
+                </div>
+                <i class="bi bi-wallet2" style="font-size: 3.5rem; opacity: 0.8;"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- Card Menunggu Pembayaran / Nunggak -->
+    <div class="col-md-6">
+        <div class="card card-summary shadow-sm p-4 bg-danger text-white" style="border-radius: 12px;">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <p class="mb-1" style="font-size: 1.1rem;">Menunggu Pembayaran</p>
+                    <h2 class="mb-0 fw-bold"><?= esc($tagihan_nunggak) ?> Tagihan</h2>
+                </div>
+                <i class="bi bi-exclamation-octagon" style="font-size: 3.5rem; opacity: 0.8;"></i>
+            </div>
+        </div>
+    </div>
 </div>
 
 <?= $this->endSection() ?>

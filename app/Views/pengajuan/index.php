@@ -6,7 +6,7 @@
     <div class="table-responsive">
         <table class="table table-hover mb-0 align-middle">
             <thead class="table-dark">
-                <tr>
+                <tr class="text-center">
                     <th>No</th>
                     <th>Nama Pemohon</th>
                     <th>Kamar Diminati</th>
@@ -23,7 +23,7 @@
                     <tr><td colspan="9" class="text-center text-muted py-4">Belum ada pengajuan sewa dari pengunjung.</td></tr>
                 <?php else : ?>
                     <?php foreach ($pengajuan as $i => $row) : ?>
-                        <tr>
+                        <tr class="text-center">
                             <td><?= $i + 1 ?></td>
                             <td><?= esc($row['nama']) ?></td>
                             <td><?= esc($row['nomor_kamar']) ?> (<?= esc($row['tipe_kamar']) ?>)</td>

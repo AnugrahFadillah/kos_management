@@ -10,11 +10,13 @@ class Pengajuan extends BaseController
 {
     protected PengajuanModel $pengajuanModel;
     protected KamarModel $kamarModel;
+    protected UserModel $userModel;
 
     public function __construct()
     {
         $this->pengajuanModel = new PengajuanModel();
         $this->kamarModel = new KamarModel();
+        $this->userModel = new UserModel();
     }
 
     // READ - Menampilkan semua pengajuan sewa yang masuk dari pengunjung
@@ -30,6 +32,16 @@ class Pengajuan extends BaseController
             log_message('debug', 'Pengajuan::index - plain pengajuan count: ' . count($pengajuan));
         } else {
             log_message('debug', 'Pengajuan::index - joined pengajuan count: ' . count($pengajuan));
+        }
+
+        foreach ($pengajuan as &$row) {
+            // Ambil email dari tabel user jika user_id tersedia
+            if (!empty($row['user_id'])) {
+                $user = $this->userModel->find($row['user_id']);
+                $row['email'] = $user ? $user['email'] : null;
+            } else {
+                $row['email'] = null;
+            }
         }
 
         $data = [
@@ -87,6 +99,14 @@ class Pengajuan extends BaseController
                 $userModel = new \App\Models\UserModel();
                 $userModel->update($pengajuan['user_id'], ['status' => 'penyewa']);
             }
+
+            $this->pengajuanModel->where('kamar_id', $pengajuan['kamar_id'])
+                                 ->where('id !=', $id) // Kecuali pengajuan yang lagi diterima ini
+                                 ->whereIn('status', ['baru', 'diproses']) // Cuma ubah yang statusnya masih gantung
+                                 ->set(['status' => 'ditolak'])
+                                 ->update();
+
+            
         } 
         
         // 3. LOGIKA ROLLBACK (JIKA SEBELUMNYA "DITERIMA" TAPI DIUBAH KE STATUS LAIN)
@@ -221,5 +241,25 @@ class Pengajuan extends BaseController
         }
 
         return redirect()->to('/')->with('success', 'Pengajuan sewa berhasil dikirim.');
+    }
+
+    // MENAMPILKAN HALAMAN RIWAYAT UNTUK USER
+    public function riwayat()
+    {
+        // Ambil ID user yang lagi login
+        $userId = session()->get('user_id');
+
+        // Jaga-jaga kalau user belum login tapi maksa ngetik URL
+        if (!$userId) {
+            return redirect()->to('/login')->with('error', 'Silakan login terlebih dahulu.');
+        }
+
+        $data = [
+            'title'   => 'Riwayat Pengajuan',
+            'riwayat' => $this->pengajuanModel->getPengajuanByUser($userId)
+        ];
+
+        // Kita arahin ke folder view: app/Views/pengajuan/riwayat.php
+        return view('pengajuan/riwayat', $data);
     }
 }

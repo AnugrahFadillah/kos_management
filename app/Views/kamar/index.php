@@ -12,7 +12,7 @@
     <div class="table-responsive">
         <table class="table table-hover mb-0 align-middle">
             <thead class="table-dark">
-                <tr>
+                <tr class="text-center">
                     <th>No</th>
                     <th>Foto</th>
                     <th>Nomor Kamar</th>
@@ -27,7 +27,7 @@
                     <tr><td colspan="7" class="text-center text-muted py-4">Belum ada data kamar.</td></tr>
                 <?php else : ?>
                     <?php foreach ($kamar as $i => $row) : ?>
-                        <tr>
+                        <tr class="text-center">
                             <td><?= $i + 1 ?></td>
                             <td>
                                 <?php if (! empty($row['foto_kamar'])) : ?>

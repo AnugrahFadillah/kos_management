@@ -8,6 +8,7 @@ use CodeIgniter\Router\RouteCollection;
 // Halaman awal sekarang adalah landing page untuk pengunjung/calon penyewa
 $routes->get('/', 'PublicSite::index');
 $routes->post('/ajukan-sewa', 'Pengajuan::ajukanSewa');
+$routes->get('/riwayat-pengajuan', 'Pengajuan::riwayat', ['filter' => 'auth']);
 
 $routes->get('/login', 'Auth::login');
 $routes->post('/login', 'Auth::attemptLogin');
